@@ -19,6 +19,8 @@
   --pico-typography-spacing-vertical: 1rem;
   --pico-typography-spacing-top: 1rem;
   --pico-form-element-background-color: var(--pico-background-color);
+  --pico-card-sectioning-background-color: var(--pico-background-color);
+  --pico-card-box-shadow: none;
   /* custom vars */
   --pico-container-max-width: 73ch;
 }
@@ -30,6 +32,17 @@
   --pico-home: var(--pico-color-slate-500);
   --pico-menu-selected: #48536b;
   --pico-menu: #5d6b89;
+  /* --pico-background-color: var(--pico-card-background-color); */
+  --pico-card-sectioning-background-color: var(--pico-background-color);
+  --pico-card-box-shadow: none;
+}
+
+[data-theme=dark],
+:root:not([data-theme=light]) {
+    --pico-card-box-shadow: none;
+    --pico-background-color: var(--pico-card-background-color);
+    --pico-card-sectioning-background-color: var(--pico-background-color);
+    --pico-card-border-color: var(--pico-color-slate-750);
 }
 
 @media only screen and (prefers-color-scheme: dark) {
@@ -294,10 +307,23 @@ grid-row-gap: 0px;
   color: var(--pico-secondary);
 } 
 
+article {
+  padding: 0;
+  padding-bottom: 30px;
+}
+
+
 article footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 4px;
+  margin-top: 4px;
+}
+
+article p.content-excerpt {
+  margin:0;
+  padding: 0;
 }
 
 .spoiler,
@@ -502,6 +528,7 @@ pre:has(> code.language-mermaid) p {
 }
 
 .content-title {
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 .content-title h1 {
