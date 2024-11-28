@@ -7,3 +7,12 @@ Just having a directory of markdown files and running a single command sounds re
 <div style="padding-bottom:0;">
 Try a different colorscheme:   <select name="colorscheme" class="colorscheme-toggle"><option value="default">default</option></select><span class="theme-toggle secondary" title="dark mode">&#9789;</span>
 </div>
+
+---
+
+##### Install
+
+```bash
+curl -LSfs https://raw.githubusercontent.com/rochacbruno/marmite/main/assets/install.sh | sh
+```
+More install methods on [[Getting Started#Installation]]

@@ -72,6 +72,12 @@ It also handles generating or copying `static/` and `media/` to the `output` dir
 
 ## Installation
 
+Install with the install script
+
+```bash
+curl -LSfs https://raw.githubusercontent.com/rochacbruno/marmite/main/assets/install.sh | sh
+```
+
 Install with cargo
 
 ```bash
@@ -126,25 +132,96 @@ CLI
 ❯ marmite --help
 Marmite is the easiest static site generator.
 
-Usage: marmite [OPTIONS] <INPUT_FOLDER> <OUTPUT_FOLDER>
+Usage: marmite [OPTIONS] <INPUT_FOLDER> [OUTPUT_FOLDER]
 
 Arguments:
   <INPUT_FOLDER>   Input folder containing markdown files
-  <OUTPUT_FOLDER>  Output folder to generate the site
+  [OUTPUT_FOLDER]  Output folder to generate the site [default:
+                   `input_folder/site`]
 
 Options:
-      --serve            Serve the site with a built-in HTTP server
-      --watch            Detect changes and rebuild the site automatically
-      --bind <BIND>      Address to bind the server [default: localhost:8000]
-      --config <CONFIG>  Path to custom configuration file [default: marmite.yaml]
-      --debug            Print debug messages Deprecated: Use -vv for debug messages
-      --init-templates   Initialize templates in the project
-      --start-theme      Initialize a theme with templates and static assets
-      --generate-config  Generate the configuration file
-  -v, --verbose...       Verbosity level (0-4) [default: 0 warn] options: -v: info,-vv: debug,-vvv: trace,-vvvv: trace all
-  -h, --help             Print help
-  -V, --version          Print version
-
+  -v, --verbose...
+          Verbosity level (0-4) [default: 0 warn] options: -v:
+          info,-vv: debug,-vvv: trace,-vvvv: trace all
+  -w, --watch
+          Detect changes and rebuild the site automatically
+      --serve
+          Serve the site with a built-in HTTP server
+      --bind <BIND>
+          Address to bind the server [default: 0.0.0.0:8000]
+  -c, --config <CONFIG>
+          Path to custom configuration file [default: marmite.yaml]
+      --init-templates
+          Initialize templates in the project
+      --start-theme
+          Initialize a theme with templates and static assets
+      --generate-config
+          Generate the configuration file
+      --init-site
+          Init a new site with sample content and default configuration
+          this will overwrite existing files usually you don't need to
+          run this because Marmite can generate a site from any folder
+          with markdown files
+      --new <NEW>
+          Create a new post with the given title and open in the
+          default editor
+  -e
+          Edit the file in the default editor
+  -p
+          Set the new content as a page
+  -t <TAGS>
+          Set the tags for the new content tags are comma separated
+      --name <NAME>
+          Site name [default: "Home" or value from config file]
+      --tagline <TAGLINE>
+          Site tagline [default: empty or value from config file]
+      --url <URL>
+          Site url [default: empty or value from config file]
+      --footer <FOOTER>
+          Site footer [default: from '_footer.md' or config file]
+      --language <LANGUAGE>
+          Site main language 2 letter code [default: "en" or value from
+          config file]
+      --pagination <PAGINATION>
+          Number of posts per page [default: 10 or value from config
+          file]
+      --enable-search <ENABLE_SEARCH>
+          Enable search [default: false or from config file] [possible
+          values: true, false]
+      --content-path <CONTENT_PATH>
+          Path for content subfolder [default: "content" or value from
+          config file] this is the folder where markdown files are
+          stored inside `input_folder` no need to change this if your
+          markdown files are in `input_folder` directly
+      --templates-path <TEMPLATES_PATH>
+          Path for templates subfolder [default: "templates" or value
+          from config file]
+      --static-path <STATIC_PATH>
+          Path for static subfolder [default: "static" or value from
+          config file]
+      --media-path <MEDIA_PATH>
+          Path for media subfolder [default: "media" or value from
+          config file] this path is relative to the folder where your
+          content files are
+      --default-date-format <DEFAULT_DATE_FORMAT>
+          Default date format [default: "%b %e, %Y" or from config
+          file] see
+          <https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html>
+      --colorscheme <COLORSCHEME>
+          Name of the colorscheme to use [default: "default" or from
+          config file] see
+          <https://rochacbruno.github.io/marmite/getting-started.html#colorschemes>
+      --toc <TOC>
+          Show Table of Contents in posts [default: false or from
+          config file] this will generate a table of contents for each
+          post [possible values: true, false]
+      --json-feed <JSON_FEED>
+          Generate JSON Feed [default: false or from config file]
+          [possible values: true, false]
+  -h, --help
+          Print help
+  -V, --version
+          Print version
 ```
 
 ## Getting started
